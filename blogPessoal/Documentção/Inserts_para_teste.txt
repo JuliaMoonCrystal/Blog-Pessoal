@@ -1,0 +1,14 @@
+INSERT INTO `db_blog_pessoal` . `tb_postagem`(`data`,`texto`,`titulo`) VALUES
+("2021-08-24 10:10:10.000","Apredendo a subir uma aplicação com Spring Boot","Spring Boot"),
+("2021-08-24 10:10:10.000","Aumentando os meus conhecimento de Spring"," Certificado Spring Boot"),
+("2021-08-24 10:10:10.000","Mais um para a lista","Certificado Java");
+
+insert into tb_postagem(data, texto, titulo) values
+(current_date(), "Blog Pessoal funcionando!", "Minha primeira postagem"),
+(current_date(), "Aprendi muito com o bootcamp da generation", "Agradecimentos"),
+(current_date(), "minh primeira página HTML", "Front-end"),
+(current_date(), "Testando subir uma aplicação com o tomcat", "Java web"),
+(current_date(), "Aprendendo sobre o Scrum", "Scrum"),
+(current_date(), "Olha a lógica desse exercicio!!!", "Lógica de programação");
+
+
