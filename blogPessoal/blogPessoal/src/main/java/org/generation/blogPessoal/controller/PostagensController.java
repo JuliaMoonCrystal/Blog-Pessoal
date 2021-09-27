@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/postagens")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
-
 public class PostagensController {
     
 	@Autowired
@@ -39,9 +38,9 @@ public class PostagensController {
 		
 	}
 	
-	// pegando pelo nome
+	// pegando pelo titulo
 	@GetMapping("/titulo/{titulo}")
-	public ResponseEntity <List<Postagem>> GetByNome(@PathVariable String titulo){
+	public ResponseEntity <List<Postagem>> GetByTitulo(@PathVariable String titulo){
 		return ResponseEntity.ok(repository.findAllByTituloContainingIgnoreCase(titulo));
 		
 	}
