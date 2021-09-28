@@ -48,12 +48,12 @@ public class PostagensController {
 		return ResponseEntity.ok(repository.findAllByTituloContainingIgnoreCase(titulo));	
 	}
 	
-	@PostMapping   //ok
+	@PostMapping   //ok post para inseririr dados
 	public ResponseEntity<Postagem> postPostagem (@RequestBody Postagem postagem){
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(postagem));
 	}
 	
-	@PutMapping  //ok
+	@PutMapping  //ok put para atualizar os dados pelo id
 	public ResponseEntity<Postagem> putPostagem (@RequestBody Postagem postagem){
 		return ResponseEntity.status(HttpStatus.OK).body(repository.save(postagem));
 	}
