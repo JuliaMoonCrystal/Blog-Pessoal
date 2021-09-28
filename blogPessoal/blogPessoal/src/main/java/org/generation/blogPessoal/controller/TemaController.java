@@ -25,34 +25,34 @@ public class TemaController {
 	@Autowired
 	private TemaRepository repository;
 	
-	@GetMapping
+	@GetMapping  //get all
 	public ResponseEntity<List<Tema>> GetAll(){
 		return ResponseEntity.ok(repository.findAll());
 	}
 	
-	@GetMapping("/{id}")
+	@GetMapping("/{id}")   // retorna a pesquisa feita pelo id
 	public ResponseEntity<Tema> GetById(@PathVariable long id){
 		return repository.findById(id).map(resposta ->ResponseEntity.ok(resposta))
 				.orElse(ResponseEntity.notFound().build());
 	}
 	
-	@GetMapping("/nome/{nome}")
+	@GetMapping("/nome/{nome}")   // retorna pesquisa feita pelo nome-descrição
 	public ResponseEntity<List<Tema>> GetByName(@PathVariable String nome){
 		return ResponseEntity.ok(repository.findAllByDescricaoContainingIgnoreCase(nome));
 		
 	}
 	
-	@PostMapping
+	@PostMapping  //add um novo tema
 	public ResponseEntity<Tema> post(@RequestBody Tema tema){
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(tema));
 	}
 	
-	@PutMapping
+	@PutMapping   //atualiza um tema
 	public ResponseEntity<Tema> put(@RequestBody Tema tema){
 		return ResponseEntity.ok(repository.save(tema));
 	}
 	
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/{id}")  // deleta um tema pelo id
 	public void delete(@PathVariable long id) {
 		repository.deleteById(id);
 	}

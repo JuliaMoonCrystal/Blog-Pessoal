@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -22,7 +23,8 @@ public class Tema {
 	 @GeneratedValue(strategy = GenerationType.IDENTITY)
      private long id;
 	 
-	 @NotNull
+	 @NotNull(message = "Digitar um tema é obrigatório")
+	 @Size(min =5, max=100)
      private String descricao;
 	 
 	 @OneToMany(mappedBy = "tema", cascade = CascadeType.ALL)
