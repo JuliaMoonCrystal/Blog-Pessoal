@@ -31,7 +31,7 @@ public class UsuarioTest {
 	}
 		
 	@Test
-	@DisplayName(" Valida Atributos que não são nulos")
+	@DisplayName(" 😉 Valida Atributos que não são nulos")
 	void testValidarAtributos() {
 		
 		Set<ConstraintViolation<Usuario>> violacao = validator.validate(usuario);
@@ -40,7 +40,7 @@ public class UsuarioTest {
 	}
 	
 	@Test
-	@DisplayName("✖ Não Valida Atributos Nulos")
+	@DisplayName("😢 Não Valida Atributos Nulos")
 	void  testNaoValidaAtributos() {
 
 		Set<ConstraintViolation<Usuario>> violacao = validator.validate(usuarioErro);
