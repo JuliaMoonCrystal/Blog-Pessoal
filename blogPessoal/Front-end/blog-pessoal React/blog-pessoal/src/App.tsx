@@ -1,5 +1,7 @@
 import React from 'react';
 import Home from './paginas/home/Home';
+import NavBar from './components/estaticos/NavBar/NavBar';
+import Footer from './components/estaticos/Footer/Footer';
 /*import logo from './logo.svg';*/
 import './App.css';
 import { Grid } from '@material-ui/core';
@@ -8,6 +10,9 @@ import { Grid } from '@material-ui/core';
 function App() {
   return (
     <>
+    <NavBar />
+    <Home />
+    <Footer />
     
     </>
   );

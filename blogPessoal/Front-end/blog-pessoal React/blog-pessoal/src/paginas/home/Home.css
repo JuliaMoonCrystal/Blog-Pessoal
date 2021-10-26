@@ -3,9 +3,10 @@
     text-align: center;
 }
 
-.imagem{
+.legoshi{
     height: 500px;
     width: 500px;
     display: block;
     margin: 0 auto;
+    border-radius: 50%;
 }
