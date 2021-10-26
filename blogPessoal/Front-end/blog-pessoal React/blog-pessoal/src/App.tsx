@@ -2,11 +2,23 @@ import React from 'react';
 import Home from './paginas/home/Home';
 /*import logo from './logo.svg';*/
 import './App.css';
+import { Grid } from '@material-ui/core';
 
 /*let nome ='Jujuba'*/
 function App() {
   return (
-   /* <div className="App">
+    <>
+    
+    </>
+  );
+}
+
+export default App;
+
+/*
+Aula 10
+
+<div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -22,9 +34,40 @@ function App() {
         </a>
       </header>
     </div>
-    <h1>{nome}</h1>*/
-    <Home />
-  );
-}
+    <h1>{nome}</h1>
 
-export default App;
+
+    <Home />
+
+    Aula 11
+    <Grid container spacing={3}>
+      <Grid item xs={12} sm={12}>
+      <Home />
+      </Grid>
+
+      <Grid item xs={12} sm={6}>
+      <Home />
+      </Grid>
+
+      <Grid item xs={12} sm={6}>
+      <Home />
+      </Grid>
+
+      <Grid item xs={12} sm={3}>
+      <Home />
+      </Grid>
+
+      <Grid item xs={12} sm={3}>
+      <Home />
+      </Grid>
+
+      <Grid item xs={12} sm={3}>
+      <Home />
+      </Grid>
+
+      <Grid item xs={12} sm={3}>
+      <Home />
+      </Grid>
+      
+    </Grid>
+    */
