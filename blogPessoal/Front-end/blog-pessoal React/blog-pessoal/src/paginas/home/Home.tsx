@@ -19,7 +19,7 @@ function Home() {
                     </Box>
                 </Grid>
                 <Grid item xs={6} >
-                    <img className='legoshi' src="https://64.media.tumblr.com/3e77c366b6ed84abca03afb136809324/6b35036a021a12f4-3a/s500x750/d12ab9e1bb53b3dcd448c341ea274ea6d21e38ef.jpg" alt="" width="500px" height="500px" />
+                    <img className='legoshi' src="https://i.pinimg.com/originals/cc/8d/21/cc8d2169bb5f02d12e749ef08d4868d9.gif" alt="" width="500px" height="500px" />
                 </Grid>
                 <Grid xs={12} style={{ backgroundColor: "white" }}>
                 </Grid>
