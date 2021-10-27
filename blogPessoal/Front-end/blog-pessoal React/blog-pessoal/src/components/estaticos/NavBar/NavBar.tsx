@@ -1,17 +1,21 @@
-import { AppBar, Box, IconButton, Toolbar, Typography } from "@material-ui/core";
+import { AppBar, Box, IconButton, Toolbar, Typography} from "@material-ui/core";
+
+import Button from '@mui/material/Button';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 import React from "react";
 
 function NavBar() {
     return(
       <>
-     <AppBar position="static">
+     <AppBar position="static" style={{background : 'black'}}>
                 <Toolbar variant="dense">
+
                     <Box style={{ cursor: "pointer" }} >
-                        <Typography variant="h5" color="gold">
-                            Casa do animes
+                        <Typography variant="h4" style={{color : 'gold'}}>
+                            House of animes
                         </Typography>
                     </Box>
-
                     <Box display="flex" justifyContent="start" p={2}>
                         <Box mx={1} style={{ cursor: "pointer" }}>
                             <Typography variant="h6" color="inherit">
@@ -28,18 +32,7 @@ function NavBar() {
                                 temas
                             </Typography>
                         </Box>
-                        <Box mx={1} style={{ cursor: "pointer" }}>
-                            <Typography variant="h6" color="inherit">
-                                cadastrar tema
-                            </Typography>
-                        </Box>
-                        <Box mx={1} style={{ cursor: "pointer" }}>
-                            <Typography variant="h6" color="inherit">
-                                logout
-                            </Typography>
-                        </Box>
-                    </Box>
-
+                    </Box>    
                 </Toolbar>
             </AppBar>
       </>
