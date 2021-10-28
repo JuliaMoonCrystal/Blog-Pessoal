@@ -26,7 +26,6 @@ function NavBar() {
       <>
      <AppBar position="static"  className='cor'>
                 <Toolbar variant="dense">
-
                     <Box style={{ cursor: "pointer" }} >
                         <Typography variant="h4" style={{color : 'gold'}}>
                             House of animes
@@ -34,17 +33,17 @@ function NavBar() {
                     </Box>  
                      
                     <Box display="flex" justifyContent="start" p={2}>
-                        <Box mx={1} style={{ cursor: "pointer" }}>
+                        <Box mx={1} className='cursor'>
                             <Typography variant="h6" color="inherit">
                                 home
                             </Typography>
                         </Box>
-                        <Box mx={1} style={{ cursor: "pointer" }}>
+                        <Box mx={1} className='cursor'>
                             <Typography variant="h6" color="inherit">
                                 postagens
                             </Typography>
                         </Box>
-                        <Box mx={1} style={{ cursor: "pointer" }}>
+                        <Box mx={1} className='cursor'>
                             <Typography variant="h6" color="inherit">
                                 temas
                             </Typography>
