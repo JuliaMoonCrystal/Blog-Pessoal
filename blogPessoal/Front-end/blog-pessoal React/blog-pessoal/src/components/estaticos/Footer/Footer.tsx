@@ -1,7 +1,7 @@
 import { Box, Grid, Typography } from "@material-ui/core";
-import InstagramIcon from '@material-ui/icons/Instagram';
-import FacebookIcon from '@material-ui/icons/Facebook';
+import  GitHubIncon  from "@material-ui/icons/GitHub";
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import { border, margin } from "@mui/system";
 import React from "react";
 
 function Footer() {
@@ -9,30 +9,24 @@ function Footer() {
       <>
       <Grid container direction="row" justifyContent="center" alignItems="center">
                 <Grid alignItems="center" item xs={12}>
-                    <Box style={{ backgroundColor: "red", height: "120px" ,padding : '5px'}}>
+                    <Box style={{ backgroundColor: "black", height: "90px" ,padding : '5px'}}>
                         <Box paddingTop={1} display="flex" alignItems="center" justifyContent="center">
-                            <Typography variant="h5" align="center" gutterBottom style={{ color: "white" }}>Siga-nos nas redes sociais </Typography>
+                            <Typography variant="h5" align="center" gutterBottom style={{ color: "white" }}>Me siga nas redes sociais </Typography>
                         </Box>
                         <Box display="flex" alignItems="center" justifyContent="center">
-                            <a href="https://www.facebook.com/generationbrasil" target="_blank">
-                                <FacebookIcon style={{ fontSize: 60, color: "white" }} />
+
+                            <a href="https://github.com/JuliaMoonCrystal" target="_blank">
+                                <GitHubIncon style={{ fontSize: 50, color: "white" }} />
                             </a>
-                            <a href="https://www.instagram.com/generationbrasil/" target="_blank">
-                                <InstagramIcon style={{ fontSize: 60, color: "white" }} />
-                            </a>
-                            <a href="https://www.linkedin.com/school/generationbrasil/" target="_blank">
-                                <LinkedInIcon style={{ fontSize: 60, color: "white" }} />
+
+                            <a href="https://www.linkedin.com/in/julia-farias-da-rocha-bb5703180/" target="_blank">
+                                <LinkedInIcon style={{ fontSize: 60, color: "white"  }} />
                             </a>
                         </Box>
                     </Box>
-                    <Box style={{ backgroundColor: "#303F9F", height: "60px" }}>
-                        <Box paddingTop={1}>
-                            <Typography variant="subtitle2" align="center" gutterBottom style={{ color: "white" }} >© 2020 Copyright:</Typography>
-                        </Box>
-                        <Box>
-                            <a target="_blank" href="https://brasil.generation.org">
-                                <Typography variant="subtitle2" gutterBottom style={{ color: "white" }} align="center">brasil.generation.org</Typography>
-                            </a>
+                    <Box style={{ backgroundColor: "black", height: "60px" }}>
+                        <Box paddingTop={3}>
+                            <Typography variant="subtitle2" align="center" gutterBottom style={{ color: "white" }} >© 2021 Copyright</Typography>
                         </Box>
                     </Box>
                 </Grid>
@@ -44,3 +38,9 @@ function Footer() {
 }
 
 export default Footer;
+
+/* <Box>
+                            <a target="_blank" href="https://brasil.generation.org">
+                                <Typography variant="subtitle2" gutterBottom style={{ color: "white" }} align="center">brasil.generation.org</Typography>
+                            </a>
+                        </Box>*/

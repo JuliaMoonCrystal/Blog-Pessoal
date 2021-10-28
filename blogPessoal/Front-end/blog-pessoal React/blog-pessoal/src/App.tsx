@@ -2,19 +2,36 @@ import React from 'react';
 import Home from './paginas/home/Home';
 import NavBar from './components/estaticos/NavBar/NavBar';
 import Footer from './components/estaticos/Footer/Footer';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 /*import logo from './logo.svg';*/
 import './App.css';
 import { Grid } from '@material-ui/core';
+import { RoundedCorner } from '@material-ui/icons';
+import Login from './paginas/login/Login'
 
 /*let nome ='Jujuba'*/
 function App() {
   return (
-    <>
+   <Router>
     <NavBar />
-    <Home />
+    <Switch>
+      <div style={{ minHeight : '100vh'}}>
+      <Route exact path='/'>
+          <Login />
+        </Route>
+       
+      <Route path='/login'>
+          <Login />
+        </Route>
+
+        <Route path='/home'>
+          <Home />
+        </Route>
+      </div>
+    </Switch>
+
     <Footer />
-    
-    </>
+   </Router>
   );
 }
 

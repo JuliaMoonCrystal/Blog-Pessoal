@@ -10,3 +10,8 @@
     margin: 0 auto;
     border-radius: 50%;
 }
+
+.fundo{
+    background: rgb(212,118,159);
+    background: radial-gradient(circle, rgba(212,118,159,1) 50%, rgba(148,187,233,1) 75%);
+}
