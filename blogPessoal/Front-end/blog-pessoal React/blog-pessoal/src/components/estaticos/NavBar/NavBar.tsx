@@ -27,26 +27,35 @@ function NavBar() {
      <AppBar position="static"  className='cor'>
                 <Toolbar variant="dense">
                     <Box style={{ cursor: "pointer" }} >
-                        <Typography variant="h4" style={{color : 'gold'}}>
+                        <Typography variant="h5" className='nome-blog'>
                             House of animes
                         </Typography>
                     </Box>  
                      
                     <Box display="flex" justifyContent="start" p={2}>
+                       <Link to={"/Home"} className='text-decorator-none'>   
+                          <Box mx={1} className='cursor'>
+                             <Typography variant="h6" color="inherit">
+                                Home
+                             </Typography>
+
+                           </Box>
+                         </Link>
+
                         <Box mx={1} className='cursor'>
                             <Typography variant="h6" color="inherit">
-                                home
+                                Postagens
                             </Typography>
                         </Box>
                         <Box mx={1} className='cursor'>
                             <Typography variant="h6" color="inherit">
-                                postagens
+                                Temas
                             </Typography>
                         </Box>
                         <Box mx={1} className='cursor'>
-                            <Typography variant="h6" color="inherit">
-                                temas
-                            </Typography>
+                             <Typography variant='h6' color='inherit'>
+                                 Sobre
+                             </Typography>
                         </Box>
                     </Box>
 
@@ -69,14 +78,14 @@ function NavBar() {
                    'aria-labelledby': 'basic-button',
                     }}
                  >
-                 <MenuItem onClick={handleClose}>Perfil</MenuItem>
-                <MenuItem onClick={handleClose}>Minha conta</MenuItem>
+                 <MenuItem onClick={handleClose}>Minha conta</MenuItem>
+                 <MenuItem onClick={handleClose}>Fazer Postagem</MenuItem>
+                 <MenuItem onClick={handleClose}>Adicionar novo tema</MenuItem>
 
-                <Link to={"/Login"} className='text-decorator-none'>
-                <MenuItem onClick={handleClose}>Logout</MenuItem>
-                </Link>
-
-                </Menu>
+                 <Link to={"/Login"} className='text-decorator-none'>
+                 <MenuItem onClick={handleClose}>Logout</MenuItem>
+                 </Link>
+                 </Menu>
 
                     </Box>
                 </Toolbar>
