@@ -52,11 +52,23 @@ function NavBar() {
                                 Temas
                             </Typography>
                         </Box>
-                        <Box mx={1} className='cursor'>
-                             <Typography variant='h6' color='inherit'>
-                                 Sobre
-                             </Typography>
+
+                       <Link to={"/Sobre"} className='text-decorator-none'> 
+                            <Box mx={1} className='cursor'>
+                                <Typography variant='h6' color='inherit'>
+                                    Sobre
+                                </Typography>
+                             </Box>     
+                       </Link> 
+                         
+                    <Link to={"/Login"} className='text-decorator-none' >   
+                       <Box mx={1} className='cursor'>
+                            <Typography variant="h6" color="inherit">
+                               Login
+                            </Typography>
                         </Box>
+                    </Link>
+                         
                     </Box>
 
                         <Box display="flex" alignItems="center" ml="auto" >

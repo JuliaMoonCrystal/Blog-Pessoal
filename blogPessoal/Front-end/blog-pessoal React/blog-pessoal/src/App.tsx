@@ -7,7 +7,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import { Grid } from '@material-ui/core';
 import { RoundedCorner } from '@material-ui/icons';
-import Login from './paginas/login/Login'
+import Login from './paginas/login/Login';
+import Sobre from './paginas/sobre/Sobre';
 
 /*let nome ='Jujuba'*/
 function App() {
@@ -20,12 +21,16 @@ function App() {
           <Login />
         </Route>
        
-      <Route path='/login'>
+      <Route path='/Login'>
           <Login />
         </Route>
 
-        <Route path='/home'>
+        <Route path='/Home'>
           <Home />
+        </Route>
+
+        <Route path='/Sobre'>
+          <Sobre />
         </Route>
         
       </div>

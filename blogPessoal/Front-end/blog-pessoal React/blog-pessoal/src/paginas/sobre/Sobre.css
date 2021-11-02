@@ -1,0 +1,10 @@
+.fundo{
+    background-color: honeydew;
+    min-height: 100vh!important;
+}
+
+.titulo{
+    font-weight: bold;
+    font-size: 50px!important;
+    color: gold!important;
+}
