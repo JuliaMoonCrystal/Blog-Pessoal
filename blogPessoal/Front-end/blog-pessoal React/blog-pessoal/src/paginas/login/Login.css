@@ -11,6 +11,8 @@
 }
 
 .usuario{
+    padding-left: 75px;
+    justify-content: center!important;
     align-items: center!important;
     width: 150px;
     height: 150px;
