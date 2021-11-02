@@ -9,8 +9,8 @@ import { Grid } from '@material-ui/core';
 import { RoundedCorner } from '@material-ui/icons';
 import Login from './paginas/login/Login';
 import Sobre from './paginas/sobre/Sobre';
+import Cadastro from './paginas/Cadastro/Cadasro';
 
-/*let nome ='Jujuba'*/
 function App() {
   return (
    <Router>
@@ -31,6 +31,10 @@ function App() {
 
         <Route path='/Sobre'>
           <Sobre />
+        </Route>
+
+        <Route path='/Cadastro'>
+          <Cadastro />
         </Route>
         
       </div>

@@ -32,7 +32,7 @@ function Login() {
                 <TextField id='senha' label='senha' variant='outlined' name='senha' margin='normal' type='password' fullWidth />
                 <Box marginTop={2} textAlign='center'>
 
-                  <Link to='/home' className='text-decorator-none'>
+                  <Link to='/Home' className='text-decorator-none'>
                     <Button type='submit' variant='contained' className='botao'>
                       Logar
                     </Button>
@@ -45,9 +45,12 @@ function Login() {
                   <Typography variant='subtitle1' gutterBottom align='center'>Não tem uma conta?</Typography>
                 </Box>
 
+              <Link to='/Cadatro' className='text-decorator-none'>
                 <Box marginRight={1}>
-                  <Typography variant='subtitle1' gutterBottom align='center' style={{ fontWeight: 'bold' }}>Cadastre-se</Typography>
+                  <Typography variant='subtitle1' gutterBottom align='center' className='cadastre'>Cadastre-se</Typography>
                 </Box>
+               </Link>
+
               </Box>
             </CardContent>
           </Card>
