@@ -3,8 +3,9 @@ import React from "react";
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import { Link } from 'react-router-dom';
 import { padding } from "@mui/system";
+import { Link } from 'react-router-dom';
+import './Cadastro.css';
 
 function Cadastro() {
     const bull = (
@@ -18,34 +19,45 @@ function Cadastro() {
     return (
         <>
             <Grid container direction='row' justifyContent='center' alignItems='center'>
+            <Grid item xs={6} style={{
+                    backgroundImage: `url(https://i.pinimg.com/originals/e0/1e/c2/e01ec21429d30d652403148865915888.gif)`,
+                    backgroundRepeat: 'no-repeat', width: '100vh', minHeight: '100vh', backgroundSize: 'cover', backgroundPosition: 'center'
+                }}>
+
+                </Grid>
+               
                 <Grid item xs={6} alignItems='center'>
                     <Box paddingX={20}>
                         <Card sx={{ minWidth: 275 }} className='cardbox'>
                             <CardContent>
                                 <form >
-                                    <Typography variant='h4' gutterBottom color='textPrimary' component='h4' align='center' style={{ fontWeight: 'bold', color: 'black' }}>Entrar</Typography>
-                                    <img src='https://img2.gratispng.com/20180714/ukj/kisspng-user-profile-computer-icons-avatar-profile-picture-icon-5b49de2f4d0404.3739895115315676633155.jpg' className='usuario' />
-
-                                    <TextField id='usuario' label='usuário' variant='outlined' name='usuario' margin='normal' fullWidth />
-                                    <TextField id='senha' label='senha' variant='outlined' name='senha' margin='normal' type='password' fullWidth />
+                                    <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='textos2'>Cadastrar</Typography>
+                                    <TextField id='nome' label='nome' variant='outlined' name='nome' margin='normal' fullWidth/>
+                                    <TextField id='usuario' label='usuario' variant='outlined' name='usuario' margin='normal' fullWidth className='text' />
+                                    <TextField id='senha' label='senha' variant='outlined' name='senha' margin='normal' type='password' fullWidth className='text' />
+                                    <TextField id='confirmarSenha' label='confirmarSenha' variant='outlined' name='confirmarSenha' margin='normal' type='password' fullWidth className='text' />
                                     <Box marginTop={2} textAlign='center'>
 
-                                        <Link to='/Home' className='text-decorator-none'>
-                                            <Button type='submit' variant='contained' className='botao'>
-                                                Logar
+                                        <Link to='/login' className='text-decorator-none'>
+                                            <Button variant='contained' color='secondary' className='btnCancelar'>
+                                                Cancelar
                                             </Button>
                                         </Link>
 
+                                        <Button type='submit' variant='contained' color='primary'>
+                                            Cadastrar
+                                        </Button>
+                                        
                                     </Box>
                                 </form>
                                 <Box display='flex' justifyContent='center' marginTop={2}>
                                     <Box marginRight={1}>
-                                        <Typography variant='subtitle1' gutterBottom align='center'>Não tem uma conta?</Typography>
+                                        <Typography variant='subtitle1' gutterBottom align='center'>Já tem uma conta?</Typography>
                                     </Box>
 
-                                    <Link to='/Cadastro' className='text-decorator-none'>
+                                    <Link to='/Login' className='text-decorator-none'>
                                         <Box marginRight={1}>
-                                            <Typography variant='subtitle1' gutterBottom align='center' className='cadastre'>Cadastre-se</Typography>
+                                            <Typography variant='subtitle1' gutterBottom align='center' className='cadastre'>Login</Typography>
                                         </Box>
                                     </Link>
 
@@ -53,12 +65,6 @@ function Cadastro() {
                             </CardContent>
                         </Card>
                     </Box>
-                </Grid>
-                <Grid item xs={6} style={{
-                    backgroundImage: `url(https://i.pinimg.com/originals/e0/1e/c2/e01ec21429d30d652403148865915888.gif)`,
-                    backgroundRepeat: 'no-repeat', width: '100vh', minHeight: '100vh', backgroundSize: 'cover', backgroundPosition: 'center'
-                }}>
-
                 </Grid>
             </Grid>
         </>
