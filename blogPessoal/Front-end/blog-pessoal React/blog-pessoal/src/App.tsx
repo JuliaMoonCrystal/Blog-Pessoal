@@ -9,7 +9,7 @@ import { Grid } from '@material-ui/core';
 import { RoundedCorner } from '@material-ui/icons';
 import Login from './paginas/login/Login';
 import Sobre from './paginas/sobre/Sobre';
-import Cadastro from './paginas/Cadastro/Cadasro';
+import Cadastro from './paginas/Cadastro/Cadastro';
 
 function App() {
   return (
