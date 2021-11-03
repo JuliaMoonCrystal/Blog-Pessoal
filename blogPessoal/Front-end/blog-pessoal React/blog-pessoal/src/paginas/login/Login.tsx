@@ -45,11 +45,13 @@ function Login() {
                   <Typography variant='subtitle1' gutterBottom align='center'>Não tem uma conta?</Typography>
                 </Box>
 
-              <Link to='/Cadatro' className='text-decorator-none'>
+              
                 <Box marginRight={1}>
+                <Link to='/Cadastro' className='text-decorator-none'>
                   <Typography variant='subtitle1' gutterBottom align='center' className='cadastre'>Cadastre-se</Typography>
+                 </Link>
                 </Box>
-               </Link>
+              
 
               </Box>
             </CardContent>
