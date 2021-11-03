@@ -1,12 +1,15 @@
 import { Box, Button, Grid, TextField, Typography } from "@material-ui/core";
-import { Bolt } from "@mui/icons-material";
-import React from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import './Login.css';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import { Link } from 'react-router-dom';
+import { Link, useHistory  } from 'react-router-dom';
 import { padding } from "@mui/system";
+import UserLogin from "../../models/UserLogin";
+import { api } from '../../services/Service';
+import useLocalStorage from 'react-use-localstorage';
+
 
 function Login() {
   const bull = (
@@ -18,25 +21,66 @@ function Login() {
     </Box>
   );
 
+  let history = useHistory();
+  const [token, setToken] = useLocalStorage('token');
+    
+  const [userLogin, setUserLogin] = useState<UserLogin>(
+    {
+      id: 0,
+      nome:'',
+      senha:'',
+      usuario:'',
+      token: ''
+
+     }
+    )
+
+    function updatedModel(e: ChangeEvent<HTMLInputElement>) {
+
+      setUserLogin({
+          ...userLogin,
+          [e.target.name]: e.target.value
+      })
+  }
+   
+      useEffect(()=>{
+          if(token != ''){
+              history.push('/home')
+          }
+      }, [token])
+ 
+
+  async function onSubmit(e: ChangeEvent<HTMLFormElement>){
+      e.preventDefault();
+      try{
+          const resposta = await api.post(`/usuarios/logar`, userLogin)
+          setToken(resposta.data.token)
+
+          alert('Usuário logado com sucesso!');
+      }catch(error){
+          alert('Dados do usuário inconsistentes. Erro ao logar!');
+      }
+  }
+
   return (
     <Grid container direction='row' justifyContent='center' alignItems='center'>
       <Grid item xs={6} alignItems='center'>
         <Box paddingX={20}>
           <Card sx={{ minWidth: 275 }} className='cardbox'>
             <CardContent>
-              <form >
+              <form onSubmit={onSubmit}>
                 <Typography variant='h4' gutterBottom color='textPrimary' component='h4' align='center' style={{ fontWeight: 'bold', color: 'black' }}>Entrar</Typography>
                 <img src='https://img2.gratispng.com/20180714/ukj/kisspng-user-profile-computer-icons-avatar-profile-picture-icon-5b49de2f4d0404.3739895115315676633155.jpg' className='usuario' />
 
-                <TextField id='usuario' label='usuário' variant='outlined' name='usuario' margin='normal' fullWidth />
-                <TextField id='senha' label='senha' variant='outlined' name='senha' margin='normal' type='password' fullWidth />
+                <TextField value={userLogin.usuario}  onChange={(e: ChangeEvent<HTMLInputElement>)=>updatedModel(e)} id='usuario' label='usuário' variant='outlined' name='usuario' margin='normal' fullWidth />
+                <TextField value={userLogin.senha}  onChange={(e: ChangeEvent<HTMLInputElement>)=>updatedModel(e)}   id='senha' label='senha' variant='outlined' name='senha' margin='normal' type='password' fullWidth />
                 <Box marginTop={2} textAlign='center'>
 
-                  <Link to='/Home' className='text-decorator-none'>
+                 
                     <Button type='submit' variant='contained' className='botao'>
                       Logar
                     </Button>
-                  </Link>
+                 
 
                 </Box>
               </form>
@@ -45,13 +89,13 @@ function Login() {
                   <Typography variant='subtitle1' gutterBottom align='center'>Não tem uma conta?</Typography>
                 </Box>
 
-              
+
                 <Box marginRight={1}>
-                <Link to='/Cadastro' className='text-decorator-none'>
-                  <Typography variant='subtitle1' gutterBottom align='center' className='cadastre'>Cadastre-se</Typography>
-                 </Link>
+                  <Link to='/Cadastro' className='text-decorator-none'>
+                    <Typography variant='subtitle1' gutterBottom align='center' className='cadastre'>Cadastre-se</Typography>
+                  </Link>
                 </Box>
-              
+
 
               </Box>
             </CardContent>
