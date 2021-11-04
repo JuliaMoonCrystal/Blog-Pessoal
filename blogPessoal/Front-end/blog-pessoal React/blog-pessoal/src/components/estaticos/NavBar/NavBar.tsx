@@ -97,6 +97,7 @@ function NavBar() {
                             <Link to={"/Login"} className='text-decorator-none'>
                                 <MenuItem onClick={handleClose}>Logout</MenuItem>
                             </Link>
+                            
                         </Menu>
 
                     </Box>
