@@ -10,39 +10,48 @@ import { RoundedCorner } from '@material-ui/icons';
 import Login from './paginas/login/Login';
 import Sobre from './paginas/sobre/Sobre';
 import CadastroUsuario from './paginas/cadastroUsuario/CadastroUsuario';
-
+import ListaTema from './components/temas/listaTemas/ListaTema';
+import ListaPostagem from './components/postagens/listaPostagens/ListaPostagem';
 
 function App() {
   return (
-   <Router>
-    <NavBar />
-    <Switch>
-      <div style={{ minHeight : '100vh'}}>
-      <Route exact path='/'>
-          <Login />
-        </Route>
-       
-      <Route path='/Login'>
-          <Login />
-        </Route>
+    <Router>
+      <NavBar />
+      <Switch>
+        <div style={{ minHeight: '100vh' }}>
+          <Route exact path='/'>
+            <Login />
+          </Route>
 
-        <Route path='/Home'>
-          <Home />
-        </Route>
+          <Route path='/Login'>
+            <Login />
+          </Route>
 
-        <Route path='/Sobre'>
-          <Sobre />
-        </Route>
+          <Route path='/Home'>
+            <Home />
+          </Route>
 
-        <Route path='/Cadastro'>
-          <CadastroUsuario />
-        </Route>
-        
-      </div>
-    </Switch>
+          <Route path='/Sobre'>
+            <Sobre />
+          </Route>
 
-    <Footer />
-   </Router>
+          <Route path='/Cadastro'>
+            <CadastroUsuario />
+          </Route>
+
+          <Route path='/Temas'>
+            <ListaTema />
+          </Route>
+
+          <Route path='/Posts'>
+            <ListaPostagem />
+          </Route>
+
+        </div>
+      </Switch>
+
+      <Footer />
+    </Router>
   );
 }
 
@@ -101,6 +110,6 @@ Aula 10
       <Grid item xs={12} sm={3}>
       <Home />
       </Grid>
-      
+
     </Grid>
     */
