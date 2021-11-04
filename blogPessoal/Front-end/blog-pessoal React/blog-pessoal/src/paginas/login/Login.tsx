@@ -41,15 +41,13 @@ function Login() {
           ...userLogin,
           [e.target.name]: e.target.value
       })
-  }
-   
+  } 
       useEffect(()=>{
           if(token != ''){
               history.push('/home')
           }
       }, [token])
  
-
   async function onSubmit(e: ChangeEvent<HTMLFormElement>){
       e.preventDefault();
       try{
