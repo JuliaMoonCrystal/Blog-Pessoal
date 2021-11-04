@@ -16,13 +16,13 @@ function ListaTema() {
   useEffect(() => {
     if (token == '') {
       alert("Você precisa estar logado")
-      history.push("/login")
+      history.push("/Login")
     }
   }, [token])
 
   async function getTema() {
     console.log("passou aqui no getTema")
-    await busca("/temas", setTemas, {
+    await busca("/tema", setTemas, {
       headers: {
         'Authorization': token
       }
@@ -31,7 +31,7 @@ function ListaTema() {
 
   useEffect(() => {
     getTema()
-    console.log(temas)
+    console.log("passou no UseEffect"+temas)
   }, [temas.length])
 
   return (
