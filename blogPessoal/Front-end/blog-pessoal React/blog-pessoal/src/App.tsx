@@ -5,8 +5,6 @@ import Footer from './components/estaticos/Footer/Footer';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 /*import logo from './logo.svg';*/
 import './App.css';
-import { Grid } from '@material-ui/core';
-import { RoundedCorner } from '@material-ui/icons';
 import Login from './paginas/login/Login';
 import Sobre from './paginas/sobre/Sobre';
 import CadastroUsuario from './paginas/cadastroUsuario/CadastroUsuario';

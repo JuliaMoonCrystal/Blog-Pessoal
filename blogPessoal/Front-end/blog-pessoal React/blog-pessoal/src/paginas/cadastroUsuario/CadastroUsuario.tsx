@@ -1,13 +1,12 @@
 import { Box, Button, Grid, TextField, Typography } from "@material-ui/core";
 import React, {useState, useEffect,ChangeEvent}from "react";
-import { useHistory } from "react-router";
 import User from "../../models/User";
 import { cadastroUsuario } from "../../services/Service";
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import { padding } from "@mui/system";
-import { Link } from 'react-router-dom';
+import { Link, useHistory  } from 'react-router-dom';
 import './CadastroUsuario.css';
 
 function CadastroUsuario() {
