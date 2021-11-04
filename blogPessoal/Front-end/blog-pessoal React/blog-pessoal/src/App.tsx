@@ -37,11 +37,12 @@ function App() {
             <CadastroUsuario />
           </Route>
 
-          <Route path='/Temas'>
+
+          <Route path='/tema'>
             <ListaTema />
           </Route>
 
-          <Route path='/Posts'>
+          <Route path='/postagens'>
             <ListaPostagem />
           </Route>
 

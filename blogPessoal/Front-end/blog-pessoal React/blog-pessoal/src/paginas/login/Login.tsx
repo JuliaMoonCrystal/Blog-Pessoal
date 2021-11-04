@@ -2,10 +2,8 @@ import { Box, Button, Grid, TextField, Typography } from "@material-ui/core";
 import React, { ChangeEvent, useEffect, useState } from "react";
 import './Login.css';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import { Link, useHistory  } from 'react-router-dom';
-import { padding } from "@mui/system";
 import UserLogin from "../../models/UserLogin";
 import { login } from '../../services/Service';
 import useLocalStorage from 'react-use-localstorage';
@@ -23,7 +21,6 @@ function Login() {
 
   let history = useHistory();
   const [token, setToken] = useLocalStorage('token');
-    
   const [userLogin, setUserLogin] = useState<UserLogin>(
     {
       id: 0,
@@ -34,7 +31,6 @@ function Login() {
 
      }
     )
-
     function updatedModel(e: ChangeEvent<HTMLInputElement>) {
 
       setUserLogin({
