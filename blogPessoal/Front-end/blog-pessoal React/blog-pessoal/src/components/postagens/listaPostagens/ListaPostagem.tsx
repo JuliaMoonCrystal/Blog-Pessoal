@@ -32,7 +32,7 @@ function ListaPostagem() {
   useEffect(() => {
 
     getPost()
-    
+    console.log(posts)
   }, [posts.length])
 
   return (
