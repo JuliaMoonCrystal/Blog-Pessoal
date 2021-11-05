@@ -15,13 +15,12 @@ function ListaPostagem() {
   useEffect(() => {
     if (token == "") {
       alert("Você precisa estar logado")
-      history.push("/Login")
+      history.push("/login")
 
     }
   }, [token])
 
   async function getPost() {
-    alert("Passou no getPost")
     await busca("/postagens", setPosts, {
       headers: {
         'Authorization': token
@@ -32,7 +31,7 @@ function ListaPostagem() {
   useEffect(() => {
 
     getPost()
-    console.log(posts)
+
   }, [posts.length])
 
   return (
