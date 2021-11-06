@@ -10,7 +10,8 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import useLocalStorage from "react-use-localstorage";
 
 function NavBar() {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -21,6 +22,15 @@ function NavBar() {
     const handleClose = () => {
         setAnchorEl(null);
     };
+
+    const [token, setToken] = useLocalStorage('token');
+    let history = useHistory();
+
+    function Lougout() {
+        setToken('');
+        history.push('/Login');
+        alert('Usuario delogado com sucesso')
+    }
 
     return (
         <>
@@ -43,20 +53,20 @@ function NavBar() {
                         </Link>
 
                         <Link to={"/postagens"} className='text-decorator-none'>
-                        <Box mx={1} className='cursor'>
-                            <Typography variant="h6" color="inherit">
-                                Postagens
-                            </Typography>
-                        </Box>
-                       </Link>
+                            <Box mx={1} className='cursor'>
+                                <Typography variant="h6" color="inherit">
+                                    Postagens
+                                </Typography>
+                            </Box>
+                        </Link>
 
-                       <Link to={"/tema"} className='text-decorator-none'>
-                        <Box mx={1} className='cursor'>
-                            <Typography variant="h6" color="inherit">
-                                Temas
-                            </Typography>
-                        </Box>
-                       </Link>
+                        <Link to={"/tema"} className='text-decorator-none'>
+                            <Box mx={1} className='cursor'>
+                                <Typography variant="h6" color="inherit">
+                                    Temas
+                                </Typography>
+                            </Box>
+                        </Link>
 
                         <Link to={"/Sobre"} className='text-decorator-none'>
                             <Box mx={1} className='cursor'>
@@ -85,17 +95,18 @@ function NavBar() {
                             MenuListProps={{
                                 'aria-labelledby': 'basic-button',
                             }}
-                        >
+                         >
                             <MenuItem onClick={handleClose}>Minha conta</MenuItem>
                             <MenuItem onClick={handleClose}>Fazer Postagem</MenuItem>
                             <MenuItem onClick={handleClose}>Adicionar novo tema</MenuItem>
 
-                            <Link to={"/Login"} className='text-decorator-none'>
-                                <MenuItem onClick={handleClose}>Logout</MenuItem>
-                            </Link>
-                            
-                        </Menu>
 
+                            <Link to={"/Login"} className='text-decorator-none'>
+
+                                <MenuItem onClick={Lougout}>Logout</MenuItem>
+                            </Link>
+
+                        </Menu>
                     </Box>
                 </Toolbar>
             </AppBar>
