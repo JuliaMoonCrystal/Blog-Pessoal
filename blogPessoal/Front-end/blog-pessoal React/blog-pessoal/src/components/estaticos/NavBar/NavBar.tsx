@@ -95,11 +95,17 @@ function NavBar() {
                             MenuListProps={{
                                 'aria-labelledby': 'basic-button',
                             }}
-                         >
+                        >
                             <MenuItem onClick={handleClose}>Minha conta</MenuItem>
-                            <MenuItem onClick={handleClose}>Fazer Postagem</MenuItem>
-                            <MenuItem onClick={handleClose}>Adicionar novo tema</MenuItem>
 
+
+                            <Link to={"/formularioPostagem"} className='text-decorator-none'>
+                                <MenuItem onClick={handleClose}>Fazer Postagem</MenuItem>
+                            </Link>
+                            
+                            <Link to={"/formularioTema"} className='text-decorator-none'>
+                                <MenuItem onClick={handleClose}>Adicionar novo tema</MenuItem>
+                            </Link>
 
                             <Link to={"/Login"} className='text-decorator-none'>
 

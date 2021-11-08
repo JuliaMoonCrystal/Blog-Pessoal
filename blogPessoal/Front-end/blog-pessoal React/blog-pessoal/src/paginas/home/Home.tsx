@@ -2,6 +2,7 @@ import React from "react";
 import { Paper, Box, Button, Grid, Typography } from "@material-ui/core";
 import TabPostagem from "../../components/postagens/tabPostagem/TabPostagem";
 import './Home.css';
+import ModalPostagem from "../../components/postagens/modalPostagem/ModalPostagem";
 
 function Home() {
     return (
@@ -15,8 +16,9 @@ function Home() {
                     </Box>
                     <Box display="flex" justifyContent="center">
                         <Box marginRight={1}>
+                        <ModalPostagem />
                         </Box>
-                        <Button variant="outlined" style={{ borderColor: "white", backgroundColor: "#3F51B5", color: "white" }}>Fazer Postagem</Button>
+                       
                     </Box>
                 </Grid>
                 <Grid item xs={6} >
