@@ -12,6 +12,9 @@ import MenuItem from '@mui/material/MenuItem';
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import useLocalStorage from "react-use-localstorage";
+import { useDispatch, useSelector } from "react-redux";
+import { TokenState } from "../../../store/tokens/tokensReducer";
+import { addToken } from "../../../store/tokens/actions";
 
 function NavBar() {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -23,99 +26,115 @@ function NavBar() {
         setAnchorEl(null);
     };
 
-    const [token, setToken] = useLocalStorage('token');
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+        (state) => state.tokens
+    );
     let history = useHistory();
+    const dispatch = useDispatch();
 
     function Lougout() {
-        setToken('');
+        dispatch(addToken(''))
         history.push('/Login');
         alert('Usuario delogado com sucesso')
     }
 
+    var navbarComponent;
+
+    if (token != "") {
+        navbarComponent = <AppBar position="static" className='cor'>
+            <Toolbar variant="dense">
+                <Box style={{ cursor: "pointer" }} >
+                    <Typography variant="h5" className='nome-blog'>
+                        House of animes
+                    </Typography>
+                </Box>
+
+                <Box display="flex" justifyContent="start" p={2}>
+                    <Link to={"/Home"} className='text-decorator-none'>
+                        <Box mx={1} className='cursor'>
+                            <Typography variant="h6" color="inherit">
+                                Home
+                            </Typography>
+
+                        </Box>
+                    </Link>
+
+                    <Link to={"/postagens"} className='text-decorator-none'>
+                        <Box mx={1} className='cursor'>
+                            <Typography variant="h6" color="inherit">
+                                Postagens
+                            </Typography>
+                        </Box>
+                    </Link>
+
+                    <Link to={"/tema"} className='text-decorator-none'>
+                        <Box mx={1} className='cursor'>
+                            <Typography variant="h6" color="inherit">
+                                Temas
+                            </Typography>
+                        </Box>
+                    </Link>
+
+                    <Link to={"/Sobre"} className='text-decorator-none'>
+                        <Box mx={1} className='cursor'>
+                            <Typography variant='h6' color='inherit'>
+                                Sobre
+                            </Typography>
+                        </Box>
+                    </Link>
+
+                    <Link to={"/Login"} className='text-decorator-none'>
+                        <Box mx={1} className='cursor' onClick={Lougout}>
+                            <Typography variant='h6' color='inherit'>
+                               Logout
+                            </Typography>
+                        </Box>
+                    </Link>
+                </Box>
+
+                <Box display="flex" alignItems="center" ml="auto" >
+                    <Button
+                        id="basic-button"
+                        aria-controls="basic-menu"
+                        aria-haspopup="true"
+                        aria-expanded={open ? 'true' : undefined}
+                        onClick={handleClick}
+                    >
+                        <MenuIcon className="icon" />
+                    </Button>
+                    <Menu
+                        id="basic-menu"
+                        anchorEl={anchorEl}
+                        open={open}
+                        onClose={handleClose}
+                        MenuListProps={{
+                            'aria-labelledby': 'basic-button',
+                        }}
+                    >
+                        <MenuItem onClick={handleClose}>Minha conta</MenuItem>
+
+
+                        <Link to={"/formularioPostagem"} className='text-decorator-none'>
+                            <MenuItem onClick={handleClose}>Fazer Postagem</MenuItem>
+                        </Link>
+
+                        <Link to={"/formularioTema"} className='text-decorator-none'>
+                            <MenuItem onClick={handleClose}>Adicionar novo tema</MenuItem>
+                        </Link>
+
+                        <Link to={"/Login"} className='text-decorator-none'>
+                            <MenuItem onClick={Lougout}>Logout</MenuItem>
+                        </Link>
+
+                    </Menu>
+                </Box>
+            </Toolbar>
+        </AppBar>
+    }
+
     return (
         <>
-            <AppBar position="static" className='cor'>
-                <Toolbar variant="dense">
-                    <Box style={{ cursor: "pointer" }} >
-                        <Typography variant="h5" className='nome-blog'>
-                            House of animes
-                        </Typography>
-                    </Box>
-
-                    <Box display="flex" justifyContent="start" p={2}>
-                        <Link to={"/Home"} className='text-decorator-none'>
-                            <Box mx={1} className='cursor'>
-                                <Typography variant="h6" color="inherit">
-                                    Home
-                                </Typography>
-
-                            </Box>
-                        </Link>
-
-                        <Link to={"/postagens"} className='text-decorator-none'>
-                            <Box mx={1} className='cursor'>
-                                <Typography variant="h6" color="inherit">
-                                    Postagens
-                                </Typography>
-                            </Box>
-                        </Link>
-
-                        <Link to={"/tema"} className='text-decorator-none'>
-                            <Box mx={1} className='cursor'>
-                                <Typography variant="h6" color="inherit">
-                                    Temas
-                                </Typography>
-                            </Box>
-                        </Link>
-
-                        <Link to={"/Sobre"} className='text-decorator-none'>
-                            <Box mx={1} className='cursor'>
-                                <Typography variant='h6' color='inherit'>
-                                    Sobre
-                                </Typography>
-                            </Box>
-                        </Link>
-                    </Box>
-
-                    <Box display="flex" alignItems="center" ml="auto" >
-                        <Button
-                            id="basic-button"
-                            aria-controls="basic-menu"
-                            aria-haspopup="true"
-                            aria-expanded={open ? 'true' : undefined}
-                            onClick={handleClick}
-                        >
-                            <MenuIcon className="icon" />
-                        </Button>
-                        <Menu
-                            id="basic-menu"
-                            anchorEl={anchorEl}
-                            open={open}
-                            onClose={handleClose}
-                            MenuListProps={{
-                                'aria-labelledby': 'basic-button',
-                            }}
-                        >
-                            <MenuItem onClick={handleClose}>Minha conta</MenuItem>
-
-
-                            <Link to={"/formularioPostagem"} className='text-decorator-none'>
-                                <MenuItem onClick={handleClose}>Fazer Postagem</MenuItem>
-                            </Link>
-                            
-                            <Link to={"/formularioTema"} className='text-decorator-none'>
-                                <MenuItem onClick={handleClose}>Adicionar novo tema</MenuItem>
-                            </Link>
-
-                            <Link to={"/Login"} className='text-decorator-none'>
-
-                                <MenuItem onClick={Lougout}>Logout</MenuItem>
-                            </Link>
-
-                        </Menu>
-                    </Box>
-                </Toolbar>
-            </AppBar>
+            {navbarComponent}
         </>
 
     );

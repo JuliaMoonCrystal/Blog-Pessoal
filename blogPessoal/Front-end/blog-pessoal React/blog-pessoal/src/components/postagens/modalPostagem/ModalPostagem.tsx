@@ -46,15 +46,14 @@ function ModalPostagem() {
   const body = (
     <div style={modalStyle} className={classes.paper}>
       <Box display="flex" justifyContent="flex-end" className="cursor">
-        <CloseIcon onClick={handleClose} />
-
+        <CloseIcon onClick={handleClose}/>
+      
       </Box>
-
-      <CadastrarPostagem />
-
+      
+      <CadastrarPostagem/>
+      
     </div>
   );
-
   return (
     <div>
       <Button

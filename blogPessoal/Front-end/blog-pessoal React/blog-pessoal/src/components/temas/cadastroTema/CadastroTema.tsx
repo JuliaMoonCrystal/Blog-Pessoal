@@ -2,10 +2,12 @@ import { Container, Typography } from "@material-ui/core";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import { ChangeEvent, useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import useLocalStorage from "react-use-localstorage";
 import Tema from "../../../models/Tema";
 import { buscaId, post, put } from "../../../services/Service";
+import { TokenState } from "../../../store/tokens/tokensReducer";
 import './CadastroTema.css';
 
 
@@ -13,7 +15,9 @@ import './CadastroTema.css';
 function CadastroTema() {
     let history = useHistory();
     const { id } = useParams<{id: string}>();
-    const [token, setToken] = useLocalStorage('token');
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+        (state) => state.tokens
+      );
     const [tema, setTema] = useState<Tema>({
         id: 0,
         descricao: ''
@@ -22,7 +26,7 @@ function CadastroTema() {
     useEffect(() => {
         if (token == "") {
             alert("Você precisa estar logado")
-            history.push("/login")
+            history.push("/Login")
     
         }
     }, [token])
@@ -75,7 +79,7 @@ function CadastroTema() {
         }
     
         function back() {
-            history.push('/tema')
+            history.push('/temas')
         }
   
     return (

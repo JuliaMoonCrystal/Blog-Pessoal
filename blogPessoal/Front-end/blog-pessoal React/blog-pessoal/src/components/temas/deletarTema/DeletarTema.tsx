@@ -4,22 +4,26 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import useLocalStorage from "react-use-localstorage";
 import Tema from "../../../models/Tema";
 import { buscaId, deleteId } from "../../../services/Service";
+import { TokenState } from "../../../store/tokens/tokensReducer";
 
 
 function DeletarTema() {
   let history = useHistory();
   const { id } = useParams<{ id: string }>();
-  const [token, setToken] = useLocalStorage('token');
+  const token = useSelector<TokenState, TokenState["tokens"]>(
+    (state) => state.tokens
+  );
   const [tema, setTema] = useState<Tema>()
 
   useEffect(() => {
     if (token == "") {
       alert("Você precisa estar logado")
-      history.push("/login")
+      history.push("/Login")
 
     }
   }, [token])
@@ -39,7 +43,7 @@ function DeletarTema() {
   }
 
   function sim() {
-    history.push('/tema')
+    history.push('/temas')
     deleteId(`/tema/${id}`, {
       headers: {
         'Authorization': token
@@ -49,7 +53,7 @@ function DeletarTema() {
   }
 
   function nao() {
-    history.push('/tema')
+    history.push('/temas')
   }
 
 
@@ -75,7 +79,7 @@ function DeletarTema() {
                 </Button>
               </Box>
               <Box mx={2}>
-                <Button  onClick={nao} variant="contained" size='large' color="secondary">
+                <Button onClick={nao} variant="contained" size='large' color="secondary">
                   Não
                 </Button>
               </Box>

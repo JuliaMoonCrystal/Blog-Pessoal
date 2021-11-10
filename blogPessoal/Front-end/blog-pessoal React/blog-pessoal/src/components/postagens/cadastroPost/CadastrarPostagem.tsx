@@ -6,23 +6,27 @@ import Select from "@mui/material/Select";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import { ChangeEvent, useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import useLocalStorage from "react-use-localstorage";
 import Postagem from "../../../models/Postagem";
 import Tema from "../../../models/Tema";
 import { busca, buscaId, post, put } from "../../../services/Service";
+import { TokenState } from "../../../store/tokens/tokensReducer";
 
 
 function CadastrarPostagem() {
     let history = useHistory();
     const { id } = useParams<{ id: string }>();
     const [temas, setTemas] = useState<Tema[]>([])
-    const [token, setToken] = useLocalStorage('token');
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+        (state) => state.tokens
+      );
 
     useEffect(() => {
         if (token == "") {
             alert("Você precisa estar logado")
-            history.push("/login")
+            history.push("/Login")
 
         }
     }, [token])
@@ -39,7 +43,7 @@ function CadastrarPostagem() {
         tema: null
     })
 
-    useEffect(() => {
+    useEffect(() => { 
         setPostagem({
             ...postagem,
             tema: tema

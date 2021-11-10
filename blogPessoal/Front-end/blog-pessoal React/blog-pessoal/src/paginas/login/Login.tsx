@@ -3,10 +3,11 @@ import React, { ChangeEvent, useEffect, useState } from "react";
 import './Login.css';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import { Link, useHistory  } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import UserLogin from "../../models/UserLogin";
 import { login } from '../../services/Service';
-import useLocalStorage from 'react-use-localstorage';
+import { useDispatch } from "react-redux";
+import { addToken } from "../../store/tokens/actions";
 
 
 function Login() {
@@ -20,39 +21,41 @@ function Login() {
   );
 
   let history = useHistory();
-  const [token, setToken] = useLocalStorage('token');
+  const dispatch = useDispatch();
+  const [token, setToken] = useState('');
   const [userLogin, setUserLogin] = useState<UserLogin>(
     {
       id: 0,
-      nome:'',
-      senha:'',
-      usuario:'',
+      nome: '',
+      senha: '',
+      usuario: '',
       token: ''
 
-     }
-    )
-    function updatedModel(e: ChangeEvent<HTMLInputElement>) {
+    }
+  )
+  function updatedModel(e: ChangeEvent<HTMLInputElement>) {
 
-      setUserLogin({
-          ...userLogin,
-          [e.target.name]: e.target.value
-      })
-  } 
-      useEffect(()=>{
-          if(token !== ''){
-              history.push('/Home')
-          }
-      }, [token])
- 
-  async function onSubmit(e: ChangeEvent<HTMLFormElement>){
-      e.preventDefault();
-      try{
-          await login(`/usuarios/logar`, userLogin, setToken);
-    
-          alert('Usuário logado com sucesso!');
-      }catch(error){
-          alert('Dados do usuário inconsistentes. Erro ao logar!');
-      }
+    setUserLogin({
+      ...userLogin,
+      [e.target.name]: e.target.value
+    })
+  }
+  useEffect(() => {
+    if (token !== '') {
+      dispatch(addToken(token));
+      history.push('/Home')
+    }
+  }, [token])
+
+  async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
+    e.preventDefault();
+    try {
+      await login(`/usuarios/logar`, userLogin, setToken);
+
+      alert('Usuário logado com sucesso!');
+    } catch (error) {
+      alert('Dados do usuário inconsistentes. Erro ao logar!');
+    }
   }
 
   return (
@@ -65,15 +68,15 @@ function Login() {
                 <Typography variant='h4' gutterBottom color='textPrimary' component='h4' align='center' style={{ fontWeight: 'bold', color: 'black' }}>Entrar</Typography>
                 <img src='https://img2.gratispng.com/20180714/ukj/kisspng-user-profile-computer-icons-avatar-profile-picture-icon-5b49de2f4d0404.3739895115315676633155.jpg' className='usuario' />
 
-                <TextField value={userLogin.usuario}  onChange={(e: ChangeEvent<HTMLInputElement>)=>updatedModel(e)} id='usuario' label='usuário' variant='outlined' name='usuario' margin='normal' fullWidth />
-                <TextField value={userLogin.senha}  onChange={(e: ChangeEvent<HTMLInputElement>)=>updatedModel(e)}   id='senha' label='senha' variant='outlined' name='senha' margin='normal' type='password' fullWidth />
+                <TextField value={userLogin.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='usuario' label='usuário' variant='outlined' name='usuario' margin='normal' fullWidth />
+                <TextField value={userLogin.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='senha' label='senha' variant='outlined' name='senha' margin='normal' type='password' fullWidth />
                 <Box marginTop={2} textAlign='center'>
 
-                 
-                    <Button type='submit' variant='contained' className='botao'>
-                      Logar
-                    </Button>
-                 
+
+                  <Button type='submit' variant='contained' className='botao'>
+                    Logar
+                  </Button>
+
 
                 </Box>
               </form>

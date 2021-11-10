@@ -5,22 +5,26 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import useLocalStorage from "react-use-localstorage";
 import Postagem from "../../../models/Postagem";
 import { buscaId, deleteId } from "../../../services/Service";
+import { TokenState } from "../../../store/tokens/tokensReducer";
 
 function DeletarPostagem() {
    
   let history = useHistory();
   const { id } = useParams<{id: string}>();
-  const [token, setToken] = useLocalStorage('token');
+  const token = useSelector<TokenState, TokenState["tokens"]>(
+    (state) => state.tokens
+  );
   const [post, setPosts] = useState<Postagem>()
 
   useEffect(() => {
       if (token == "") {
           alert("Você precisa estar logado")
-          history.push("/login")
+          history.push("/Login")
   
       }
   }, [token])
@@ -40,7 +44,7 @@ function DeletarPostagem() {
       }
 
       function sim() {
-          history.push('/postagens')
+          history.push('/posts')
           deleteId(`/postagens/${id}`, {
             headers: {
               'Authorization': token
