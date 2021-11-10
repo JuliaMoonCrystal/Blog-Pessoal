@@ -15,6 +15,7 @@ import useLocalStorage from "react-use-localstorage";
 import { useDispatch, useSelector } from "react-redux";
 import { TokenState } from "../../../store/tokens/tokensReducer";
 import { addToken } from "../../../store/tokens/actions";
+import { toast } from 'react-toastify';
 
 function NavBar() {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -35,7 +36,19 @@ function NavBar() {
     function Lougout() {
         dispatch(addToken(''))
         history.push('/Login');
-        alert('Usuario delogado com sucesso')
+        toast.info('Usuário deslogado',
+            {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+
+            }
+        )
     }
 
     var navbarComponent;
@@ -86,7 +99,7 @@ function NavBar() {
                     <Link to={"/Login"} className='text-decorator-none'>
                         <Box mx={1} className='cursor' onClick={Lougout}>
                             <Typography variant='h6' color='inherit'>
-                               Logout
+                                Logout
                             </Typography>
                         </Box>
                     </Link>

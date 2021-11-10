@@ -5,9 +5,9 @@ import { cadastroUsuario } from "../../services/Service";
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import { padding } from "@mui/system";
 import { Link, useHistory  } from 'react-router-dom';
 import './CadastroUsuario.css';
+import { toast } from "react-toastify";
 
 function CadastroUsuario() {
     const bull = (
@@ -61,9 +61,33 @@ function CadastroUsuario() {
         e.preventDefault()
         if (confirmarSenha == user.senha) {
             cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
-            alert('Usuario cadastrado com sucesso')
+            toast.success('Cadastro feito com sucesso',
+            {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+    
+            }
+        )
         } else {
-            alert('Dados inconsistentes. Favor verificar as informações de cadastro.')
+            toast.error('Dados divergentes ',
+            {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+    
+            }
+        )
         }
     }
 

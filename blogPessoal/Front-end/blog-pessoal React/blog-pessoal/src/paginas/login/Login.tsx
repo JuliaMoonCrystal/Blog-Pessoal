@@ -8,7 +8,8 @@ import UserLogin from "../../models/UserLogin";
 import { login } from '../../services/Service';
 import { useDispatch } from "react-redux";
 import { addToken } from "../../store/tokens/actions";
-
+import { toast } from "react-toastify";
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 function Login() {
   const bull = (
@@ -52,9 +53,33 @@ function Login() {
     try {
       await login(`/usuarios/logar`, userLogin, setToken);
 
-      alert('Usuário logado com sucesso!');
+      toast.success('Usuário logado com sucesso',
+      {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: false,
+          theme: "colored",
+          progress: undefined,
+
+      }
+  )
     } catch (error) {
-      alert('Dados do usuário inconsistentes. Erro ao logar!');
+      toast.error('Dados divergentes',
+      {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: false,
+          theme: "colored",
+          progress: undefined,
+
+      }
+  )
     }
   }
 
@@ -66,7 +91,7 @@ function Login() {
             <CardContent>
               <form onSubmit={onSubmit}>
                 <Typography variant='h4' gutterBottom color='textPrimary' component='h4' align='center' style={{ fontWeight: 'bold', color: 'black' }}>Entrar</Typography>
-                <img src='https://img2.gratispng.com/20180714/ukj/kisspng-user-profile-computer-icons-avatar-profile-picture-icon-5b49de2f4d0404.3739895115315676633155.jpg' className='usuario' />
+                <AccountCircleIcon className='userlogin' />
 
                 <TextField value={userLogin.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='usuario' label='usuário' variant='outlined' name='usuario' margin='normal' fullWidth />
                 <TextField value={userLogin.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='senha' label='senha' variant='outlined' name='senha' margin='normal' type='password' fullWidth />

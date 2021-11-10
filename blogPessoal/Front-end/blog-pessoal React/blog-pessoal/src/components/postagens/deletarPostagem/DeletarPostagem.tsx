@@ -7,6 +7,7 @@ import Typography from "@material-ui/core/Typography";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import useLocalStorage from "react-use-localstorage";
 import Postagem from "../../../models/Postagem";
 import { buscaId, deleteId } from "../../../services/Service";
@@ -23,7 +24,19 @@ function DeletarPostagem() {
 
   useEffect(() => {
       if (token == "") {
-          alert("Você precisa estar logado")
+        toast.error('Voce prescisa estar logado',
+        {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: false,
+            theme: "colored",
+            progress: undefined,
+
+        }
+    )
           history.push("/Login")
   
       }
@@ -50,7 +63,19 @@ function DeletarPostagem() {
               'Authorization': token
             }
           });
-          alert('Postagem deletada com sucesso');
+          toast.success('Postagem apagada com sucesso',
+          {
+              position: "top-right",
+              autoClose: 2000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: false,
+              draggable: false,
+              theme: "colored",
+              progress: undefined,
+
+          }
+      )
         }
       
         function nao() {
