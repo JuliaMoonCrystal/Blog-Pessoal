@@ -5,9 +5,9 @@ import { busca } from '../../../services/Service'
 import { Box, Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
 import './ListaPostagem.css';
 import { useHistory } from 'react-router-dom'
-import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 import { toast } from 'react-toastify';
+import { useSelector } from 'react-redux';
 
 function ListaPostagem() {
   const [posts, setPosts] = useState<Postagem[]>([])

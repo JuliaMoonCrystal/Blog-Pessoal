@@ -5,6 +5,7 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+
 import { useHistory, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import useLocalStorage from "react-use-localstorage";
@@ -78,7 +79,7 @@ function DeletarTema() {
   }
 
   function nao() {
-    history.push('/temas')
+    history.push('/tema')
   }
 
 

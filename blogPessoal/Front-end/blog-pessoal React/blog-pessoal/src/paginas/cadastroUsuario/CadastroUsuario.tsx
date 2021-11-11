@@ -2,12 +2,11 @@ import { Box, Button, Grid, TextField, Typography } from "@material-ui/core";
 import React, {useState, useEffect,ChangeEvent}from "react";
 import User from "../../models/User";
 import { cadastroUsuario } from "../../services/Service";
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
 import { Link, useHistory  } from 'react-router-dom';
 import './CadastroUsuario.css';
 import { toast } from "react-toastify";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
 
 function CadastroUsuario() {
     const bull = (

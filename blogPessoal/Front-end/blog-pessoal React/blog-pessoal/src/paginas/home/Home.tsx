@@ -4,9 +4,9 @@ import TabPostagem from "../../components/postagens/tabPostagem/TabPostagem";
 import './Home.css';
 import ModalPostagem from "../../components/postagens/modalPostagem/ModalPostagem";
 import { Link, useHistory } from "react-router-dom";
-import { useSelector } from "react-redux";
 import { TokenState } from "../../store/tokens/tokensReducer";
 import { toast } from "react-toastify";
+import { useSelector } from "react-redux";
 
 function Home() {
 
@@ -18,18 +18,18 @@ function Home() {
     useEffect(() => {
         if (token == "") {
             toast.error('Você prescisa estar logado',
-            {
-                position: "top-right",
-                autoClose: 2000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: false,
-                draggable: false,
-                theme: "colored",
-                progress: undefined,
+                {
+                    position: "top-right",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    theme: "colored",
+                    progress: undefined,
 
-            }
-        )
+                }
+            )
             history.push("/Login")
 
         }
@@ -62,8 +62,7 @@ function Home() {
                     <TabPostagem />
                 </Grid>
             </Grid>
-
-        </div>
+        </div >
     );
 
 }

@@ -6,9 +6,9 @@ import './ListaTema.css';
 import useLocalStorage from 'react-use-localstorage';
 import { useHistory } from 'react-router-dom';
 import { busca } from '../../../services/Service';
-import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 import { toast } from 'react-toastify';
+import { useSelector } from 'react-redux';
 
 function ListaTema() {
   const [temas, setTemas] = useState<Tema[]>([])

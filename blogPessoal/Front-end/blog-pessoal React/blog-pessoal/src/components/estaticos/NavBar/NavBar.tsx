@@ -6,16 +6,16 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import MenuIcon from '@material-ui/icons/Menu';
 import './NavBar.css';
-import Button from '@mui/material/Button';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import useLocalStorage from "react-use-localstorage";
-import { useDispatch, useSelector } from "react-redux";
 import { TokenState } from "../../../store/tokens/tokensReducer";
 import { addToken } from "../../../store/tokens/actions";
 import { toast } from 'react-toastify';
+import { useDispatch, useSelector } from "react-redux";
+import Button from "@mui/material/Button";
+import MenuItem from "@mui/material/MenuItem";
+import { Menu } from "@mui/material";
 
 function NavBar() {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);

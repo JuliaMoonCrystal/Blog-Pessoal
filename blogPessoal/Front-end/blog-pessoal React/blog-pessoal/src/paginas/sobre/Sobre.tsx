@@ -15,8 +15,7 @@ import './Sobre.css';
                         vero sapiente placeat eaque incidunt vitae cupiditate perspiciatis sed officiis modi optio
                         labore recusandae, provident temporibus pariatur in repellat minima?
                         
-                        
-                        
+
                         </Typography>
                     </Box>
                 </Grid>

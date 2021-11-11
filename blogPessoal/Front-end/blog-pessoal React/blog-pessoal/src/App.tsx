@@ -14,10 +14,10 @@ import CadastrarPostagem from './components/postagens/cadastroPost/CadastrarPost
 import CadastroTema from './components/temas/cadastroTema/CadastroTema';
 import DeletarPostagem from './components/postagens/deletarPostagem/DeletarPostagem';
 import DeletarTema from './components/temas/deletarTema/DeletarTema';
-import { Provider } from 'react-redux';
 import store from './store/Store';
 import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Provider } from 'react-redux';
 
 
 function App() {

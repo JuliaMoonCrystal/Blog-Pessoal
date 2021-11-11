@@ -1,9 +1,10 @@
 import { Container, Typography } from "@material-ui/core";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
+
 import { ChangeEvent, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import useLocalStorage from "react-use-localstorage";
 import Tema from "../../../models/Tema";
@@ -116,7 +117,7 @@ function CadastroTema() {
         }
     
         function back() {
-            history.push('/temas')
+            history.push('/tema')
         }
   
     return (
@@ -124,9 +125,11 @@ function CadastroTema() {
             <form onSubmit={onSubmit}>
                 <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro tema</Typography>
                 <TextField value={tema.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedTema(e)} id="descricao" label="descricao" variant="outlined" name="descricao" margin="normal" fullWidth />
+               
                 <Button type="submit" variant="contained" color="primary">
                     Finalizar
                 </Button>
+                
             </form>
         </Container>
     )
