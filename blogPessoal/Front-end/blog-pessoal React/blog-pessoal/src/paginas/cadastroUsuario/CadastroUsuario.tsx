@@ -1,8 +1,8 @@
 import { Box, Button, Grid, TextField, Typography } from "@material-ui/core";
-import React, {useState, useEffect,ChangeEvent}from "react";
+import React, { useState, useEffect, ChangeEvent } from "react";
 import User from "../../models/User";
 import { cadastroUsuario } from "../../services/Service";
-import { Link, useHistory  } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import './CadastroUsuario.css';
 import { toast } from "react-toastify";
 import Card from "@mui/material/Card";
@@ -58,35 +58,64 @@ function CadastroUsuario() {
 
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
-        if (confirmarSenha == user.senha) {
+
+        if (user.senha.length < 8) {
+            toast.error('Senha tem que ter no minimo 8 caracteres',
+                {
+                    position: "top-right",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    theme: "colored",
+                    progress: undefined,
+
+                })
+        }
+        else if (user.nome.length < 2) {
+            toast.error('Nome tem que ter no minimo 2 caracteres',
+                {
+                    position: "top-right",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    theme: "colored",
+                    progress: undefined,
+
+                })
+        }
+        else if (confirmarSenha == user.senha) {
             cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
             toast.success('Cadastro feito com sucesso',
-            {
-                position: "top-right",
-                autoClose: 2000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: false,
-                draggable: false,
-                theme: "colored",
-                progress: undefined,
-    
-            }
-        )
+                {
+                    position: "top-right",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    theme: "colored",
+                    progress: undefined,
+
+                }
+            )
         } else {
-            toast.error('Dados divergentes ',
-            {
-                position: "top-right",
-                autoClose: 2000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: false,
-                draggable: false,
-                theme: "colored",
-                progress: undefined,
-    
-            }
-        )
+            toast.error('Dados inválidos ',
+                {
+                    position: "top-right",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    theme: "colored",
+                    progress: undefined,
+
+                }
+            )
         }
     }
 
