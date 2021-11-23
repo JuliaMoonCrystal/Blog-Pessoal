@@ -31,7 +31,7 @@ function ListaPostagem() {
 
         }
     )
-      history.push("/login")
+      history.push("/Login")
 
     }
   }, [token])
@@ -61,13 +61,13 @@ function ListaPostagem() {
                   Postagens
                 </Typography>
                 <Typography variant="h5" component="h2">
-                  {post.titulo}
+                  Titulo: {post.titulo}
                 </Typography>
                 <Typography variant="body2" component="p">
-                  {post.texto}
+                  Texto: {post.texto}
                 </Typography>
                 <Typography variant="body2" component="p">
-                  {post.tema?.descricao}
+                  Tema: {post.tema?.descricao}
                 </Typography>
               </CardContent>
               <CardActions>

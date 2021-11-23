@@ -20,7 +20,7 @@ function ListaTema() {
   useEffect(() => {
     if (token == '') {
       toast.error('Voce prescisa estar logado',
-      {
+        {
           position: "top-right",
           autoClose: 2000,
           hideProgressBar: false,
@@ -30,8 +30,8 @@ function ListaTema() {
           theme: "colored",
           progress: undefined,
 
-      }
-  )
+        }
+      )
       history.push("/Login")
     }
   }, [token])
