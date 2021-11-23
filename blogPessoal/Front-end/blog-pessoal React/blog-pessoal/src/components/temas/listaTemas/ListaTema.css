@@ -1,3 +1,8 @@
 .text-decorator-none{
     text-decoration: none;
 }
+
+.cardTema{
+    background: rgb(224,84,45)!important;
+    background: linear-gradient(90deg, rgba(224,84,45,0.958420868347339) 22%, rgba(24,29,172,0.989233193277311) 40%, rgba(213,228,26,1) 58%)!important;
+}
